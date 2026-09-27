@@ -23,15 +23,3 @@ The primary objectives of this project are:
 - To develop an understanding of professional project organization and documentation.
 
 ---
-
-## ✨ Features
-
-- **Semantic HTML structure** for accessibility and readability.
-- **Responsive design** that adapts seamlessly to desktop and mobile screens.
-- **Modern UI** featuring a gradient header, skill badges, and clean typography.
-- **Well-organized sections** including Profile, Education, Skills, and Contact Information.
-- **Lightweight and dependency-free** — runs entirely in the browser without external libraries.
-
----
-
-## 📂 Project Structure
