@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yocoharen Takashie — Curriculum Vitae</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #2c3e50;
+      --accent-soft: #eef2f6;
+      --text: #1a1a1a;
+      --muted: #555;
+      --light: #8a8a8a;
+      --border: #e8e8e8;
+      --bg: #fdfdfd;
+      --card: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+      padding: 70px 20px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      z-index: 10;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 55px 60px;
+      box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.03),
+        0 8px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      margin-bottom: 45px;
+      padding-bottom: 35px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    header .photo {
+      flex-shrink: 0;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid var(--accent-soft);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    header .info { flex: 1; min-width: 0; }
+
+    header .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--light);
+      margin-bottom: 8px;
+    }
+
+    header h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.6px;
+      color: var(--accent);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    header .role {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    header .location {
+      font-size: 0.9rem;
+      color: var(--light);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    header .location::before {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* ---------- Sections ---------- */
+    section { margin-bottom: 38px; }
+    section:last-of-type { margin-bottom: 0; }
+
+    h2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ---------- Profile ---------- */
+    .profile p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* ---------- Entries ---------- */
+    .entry {
+      margin-bottom: 22px;
+      padding-left: 16px;
+      border-left: 2px solid var(--accent-soft);
+      transition: border-color 0.25s ease;
+    }
+
+    .entry:hover { border-left-color: var(--accent); }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .entry-title {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .entry-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--light);
+      white-space: nowrap;
+    }
+
+    .entry-sub {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 2px;
+    }
+
+    .entry-desc {
+      color: var(--light);
+      font-size: 0.85rem;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* ---------- Skills ---------- */
+    .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .skills span {
+      font-size: 0.82rem;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 5px 13px;
+      border-radius: 6px;
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .skills span:hover {
+      background: var(--card);
+      border-color: var(--accent);
+    }
+
+    /* ---------- Contact ---------- */
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px 28px;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .contact-item .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--light);
+    }
+
+    .contact-item a,
+    .contact-item span {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 50px;
+      padding-top: 25px;
+      border-top: 1px solid var(--border);
+      color: var(--light);
+      font-size: 0.78rem;
+      font-family: 'JetBrains Mono', monospace;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 640px) {
+      body { padding: 40px 12px; }
+      .container { padding: 35px 24px; border-radius: 8px; }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+
+      header .photo { width: 90px; height: 90px; }
+      header h1 { font-size: 1.5rem; }
+
+      .entry-header { flex-direction: column; gap: 2px; }
+      .contact { grid-template-columns: 1fr; }
+    }
+
+    /* ---------- Print ---------- */
+    @media print {
+      body { padding: 0; background: #fff; }
+      body::before { display: none; }
+      .container {
+        border: none;
+        box-shadow: none;
+        padding: 20px;
+        max-width: 100%;
+      }
+      .entry:hover, .skills span:hover {
+        background: var(--accent-soft);
+        border-color: transparent;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <img src="profile.png" alt="Yocoharen Takashie" class="photo" />
+      <div class="info">
+        <div class="eyebrow">Curriculum Vitae</div>
+        <h1>Yocoharen Takashie</h1>
+        <p class="role">BS Information Technology Student</p>
+        <p class="location">Panabo, Davao del Norte</p>
+      </div>
+    </header>
+
+    <!-- Profile -->
+    <section class="profile">
+      <h2>Profile</h2>
+      <p>
+        4th-year BS Information Technology student with hands-on experience
+        in full stack development. Passionate about building practical,
+        user-focused applications and continuously learning emerging
+        technologies.
+      </p>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <h2>Experience</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Full Stack Developer</span>
+          <span class="entry-date">2025 — 2026</span>
+        </div>
+        <div class="entry-sub">EduPal</div>
+        <div class="entry-desc">WeChat Mini Program</div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">BS Information Technology</span>
+          <span class="entry-date">2023 — Present</span>
+        </div>
+        <div class="entry-sub">Davao del Norte State College</div>
+      </div>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Senior High School</span>
+          <span class="entry-date">2021 — 2023</span>
+        </div>
+        <div class="entry-sub">Panabo City National High School</div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <h2>Skills</h2>
+      <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Full Stack Development</span>
+        <span>Git &amp; GitHub</span>
+        <span>Problem Solving</span>
+        <span>Teamwork</span>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section>
+      <h2>Contact</h2>
+      <div class="contact">
+        <div class="contact-item">
+          <span class="label">Email</span>
+          <a href="mailto:yocoharen24@gmail.com">yocoharen24@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="label">Phone</span>
+          <a href="tel:+639922768218">0992 276 8218</a>
+        </div>
+        <div class="contact-item">
+          <span class="label">GitHub</span>
+          <a href="https://github.com/Yoko-Haren" target="_blank" rel="noopener">github.com/Yoko-Haren</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      © 2025 Yocoharen Takashie
+    </footer>
+
+  </div>
+
+</body>
+</html>
