@@ -279,19 +279,174 @@
       .contact { grid-template-columns: 1fr; }
     }
 
-    /* ---------- Print ---------- */
+    /* ---------- Print (1-page optimized) ---------- */
     @media print {
-      body { padding: 0; background: #fff; }
-      body::before { display: none; }
-      .container {
-        border: none;
-        box-shadow: none;
-        padding: 20px;
-        max-width: 100%;
+      @page {
+        size: A4;
+        margin: 10mm 14mm;
       }
-      .entry:hover, .skills span:hover {
-        background: var(--accent-soft);
-        border-color: transparent;
+
+      html, body {
+        background: #fff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 10pt;
+        line-height: 1.4;
+        color: #000;
+      }
+
+      body::before {
+        display: none !important;
+      }
+
+      .container {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        background: #fff;
+      }
+
+      /* ----- Header ----- */
+      header {
+        margin-bottom: 12pt;
+        padding-bottom: 8pt;
+        border-bottom: 1px solid #ccc;
+        gap: 14pt;
+        page-break-inside: avoid;
+      }
+
+      header .photo {
+        width: 65pt;
+        height: 65pt;
+        border-width: 2pt;
+        box-shadow: none;
+      }
+
+      header .eyebrow {
+        font-size: 7pt;
+        margin-bottom: 2pt;
+        letter-spacing: 1.5px;
+      }
+
+      header h1 {
+        font-size: 16pt;
+        margin-bottom: 2pt;
+        color: #2c3e50;
+      }
+
+      header .role {
+        font-size: 9.5pt;
+        margin-bottom: 1pt;
+      }
+
+      header .location {
+        font-size: 8.5pt;
+      }
+
+      /* ----- Sections ----- */
+      section {
+        margin-bottom: 11pt;
+        page-break-inside: avoid;
+      }
+
+      h2 {
+        font-size: 7.5pt;
+        margin-bottom: 6pt;
+        letter-spacing: 1.5px;
+        color: #2c3e50;
+      }
+
+      h2::after {
+        background: #ddd;
+      }
+
+      /* ----- Profile ----- */
+      .profile p {
+        font-size: 9.5pt;
+        line-height: 1.35;
+      }
+
+      /* ----- Entries ----- */
+      .entry {
+        margin-bottom: 7pt;
+        padding-left: 9pt;
+        border-left: 1.5pt solid #2c3e50;
+        page-break-inside: avoid;
+      }
+
+      .entry-title {
+        font-size: 10pt;
+      }
+
+      .entry-date {
+        font-size: 7.5pt;
+      }
+
+      .entry-sub {
+        font-size: 8.5pt;
+        margin-top: 1pt;
+      }
+
+      .entry-desc {
+        font-size: 8pt;
+        margin-top: 1pt;
+      }
+
+      /* ----- Skills ----- */
+      .skills {
+        gap: 3pt;
+      }
+
+      .skills span {
+        font-size: 8pt;
+        padding: 2pt 7pt;
+        background: #f3f4f6 !important;
+        color: #2c3e50 !important;
+        border: none !important;
+      }
+
+      /* ----- Contact ----- */
+      .contact {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6pt 16pt;
+      }
+
+      .contact-item .label {
+        font-size: 6.5pt;
+      }
+
+      .contact-item a,
+      .contact-item span {
+        font-size: 9pt;
+      }
+
+      /* ----- Footer ----- */
+      footer {
+        margin-top: 12pt;
+        padding-top: 6pt;
+        border-top: 1px solid #ccc;
+        font-size: 7pt;
+        color: #888;
+      }
+
+      /* ----- Kill effects ----- */
+      * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+        transition: none !important;
+      }
+
+      .entry:hover {
+        border-left-color: #2c3e50;
+      }
+
+      a {
+        color: #000 !important;
+        text-decoration: none !important;
       }
     }
   </style>
